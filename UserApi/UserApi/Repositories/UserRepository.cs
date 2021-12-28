@@ -14,7 +14,6 @@ namespace UserApi.Repositories
 
         public bool TryCreateUser(UserDto user)
         {
-
             if (_datasource.Users.TryGetValue(user.UserId, out UserDto existingUser))
             {
                 return false;
@@ -38,7 +37,6 @@ namespace UserApi.Repositories
 
         public UserDtoBase GetById(int id)
         {
-
             if (_datasource.Users.TryGetValue(id, out UserDto existingUser))
             {
                 return existingUser;
