@@ -14,9 +14,8 @@ namespace UserApi.Repositories
 
         public bool TryCreateUser(UserDto user)
         {
-            UserDto existingUser;
 
-            if (_datasource.Users.TryGetValue(user.UserId, out existingUser))
+            if (_datasource.Users.TryGetValue(user.UserId, out UserDto existingUser))
             {
                 return false;
             }
@@ -39,9 +38,8 @@ namespace UserApi.Repositories
 
         public UserDtoBase GetById(int id)
         {
-            UserDto existingUser;
 
-            if (_datasource.Users.TryGetValue(id, out existingUser))
+            if (_datasource.Users.TryGetValue(id, out UserDto existingUser))
             {
                 return existingUser;
             }
@@ -51,9 +49,8 @@ namespace UserApi.Repositories
 
         public bool TryUpdateUser(UserDto user)
         {
-            UserDto existingUser;
 
-            if (_datasource.Users.TryGetValue(user.UserId, out existingUser))
+            if (_datasource.Users.TryGetValue(user.UserId, out UserDto existingUser))
             {
                 var removedSuccessfully = _datasource.Users.Remove(user.UserId);
 
